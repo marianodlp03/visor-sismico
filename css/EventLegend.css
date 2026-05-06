@@ -1,0 +1,104 @@
+.eventLegend {
+	background: white;
+	border-color: black;
+	border: 1px solid #444444;
+	padding: 6px;
+	border-radius: 5px;
+	/* width: 380px; */
+	left: 15px;
+}
+
+.intensitySymbol {
+	width: 16px;
+	height: 16px;
+	border: 0px;
+	background: gray;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.intensityText {
+	width: 8px;
+	border: 0px;
+}
+
+.faultSymbol {
+	width: 32px;
+	height: 3px;
+	float: left;
+	margin-top: 7px;
+	margin-right: 8px;
+}
+
+.popCircleSymbol {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 2px solid;
+	float: left;
+	margin-right: 8px;
+}
+
+.popDiamondSymbol {
+	width: 12px; 
+	height: 12px; 
+	border: 2px solid; 
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	float: left;
+	margin-right: 8px;
+}
+
+.populationsDivTop {
+	margin-bottom: -12px;
+}
+
+.populationsDivBottom {
+	margin-top: -12px;
+}
+
+.populationsDivBetween {
+	margin-top: -12px;
+	margin-bottom: -12px;
+}
+
+.populationsDivTop .text {
+	font-style: normal;
+	position: relative;
+	bottom: 12px;
+}
+
+.populationsDivBottom .text {
+	font-style: normal;
+	position: relative;
+	bottom: 12px;
+}
+
+.populationsDivBetween .text {
+	font-style: normal;
+	position: relative;
+	bottom: 12px;
+}
+
+.quakeSymbol {
+	opacity: 0.8;
+	position: absolute;
+	float: left;
+	border: 2px solid;
+	border-radius: 50%;
+}
+
+.quakeLine {
+	height: 1px;
+	float: left;
+	position: absolute;
+	background: black;
+}
+
+.quakeText {
+	font-style: normal;
+	position: absolute;
+}

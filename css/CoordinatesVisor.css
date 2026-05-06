@@ -1,0 +1,8 @@
+.coordinateVisor {
+	background: white;
+	border-color: black;
+	border: 1px solid #444444;
+	padding: 6px;
+	border-radius: 5px;
+	width: 220px;
+}
