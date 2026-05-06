@@ -1,0 +1,20 @@
+Changes control:
+
+Version 1.0:
+ - Initial release!
+
+Version 1.1:
+ - Quake simbology now includes a tone gradient (initial and final colors customizable) inside the fill to show quake depth. Color depends on the value in relation to the minimum and maximum values
+   of filtered quakes.
+ - Added Jorge Gaspar e-mail to the contact information.
+ - Added function "Restore initial view" to the context menu.
+ - Added "favicon".
+ - Corrected an error that did not modify the simbology of a duplicated layer when it was modified.
+ - Corrected other code and text errors.
+
+Version 1.2:
+ - Modified default colors for the minimum and maximum quake depth symbologies.
+ - Modified the searchbox populationc control. Now on pressing "ENTER" o clicking on the magnifying lens icon the first sugested population will be selected.
+ - Updated quake catalog to 18/02/2024.
+ - Added to the option to display the layer control always deployed or contracted when not on focus.
+ - Minor changes.

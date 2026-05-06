@@ -1,0 +1,20 @@
+Control de cambios:
+
+Versión 1.0:
+ - ¡Lanzamiento inicial!
+
+Versión 1.1:
+ - La simbología de sismos incluye ahora un gradiente (modificable sus colores inicial y final) de tono en el relleno para mostrar la profundidad de los terremotos. El color depende del valor respecto a
+   los valores mínimo y máximo de los sismos filtrados.
+ - Añadido el correo de Jorge Gaspar a la información de contacto.
+ - Añadida la función de "Restaurar vista inicial" en el menú contextual.
+ - Añadido "favicon".
+ - Corregido error por el que al modificar la simbología de una capa no se modificaba su correspondiente duplicada.
+ - Corregidos otros errores de código y texto.
+
+Versión 1.2:
+ - Modificados los colores por defecto para las simbologías de profundidad mínima y máxima de sismos.
+ - Modificado el control de búsqueda de poblaciones. Ahora al pulsar "ENTER" o hacer click en el icono de lupa se seleccionará la primera población sugerida.
+ - Añadida la opción de mostrar el control de capas siempre desplegado o contraído cuando no está activo.
+ - Actualizado el catálogo sísmico al 18/02/2024.
+ - Cambios menores.

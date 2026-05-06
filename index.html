@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Visor de eventos sísmicos</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Francisco Manuel Anta Sánchez">
+    <meta name="entity" content="Universidad Politécnica de Madrid">
+    <meta name="description" content="Visor de eventos sísmicos de España con propósitos didácticos
+    y emprendido como proyecto de fin de máster de la titulación de Máster en Ingeniería Geodésica y Cartografía">
+
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/leaflet.contextmenu.css" />
+    <link rel="stylesheet" href="css/L.Control.BetterScale.css" />
+    <link rel="stylesheet" href="css/CoordinatesVisor.css" />
+    <link rel="stylesheet" href="css/Leaflet.AnimatedSearchBox.css" />
+    <link rel="stylesheet" href="css/easy-button.css" />
+    <link rel="stylesheet" href="css/leaflet-sidepanel.css" />
+    <link rel="stylesheet" href="css/L.Control.Window.css" />
+    <link rel="stylesheet" href="css/ToogleButton.css" />
+    <link rel="stylesheet" href="css/FilterLegend.css" />
+    <link rel="stylesheet" href="css/EventLegend.css" />
+    <link rel="stylesheet" href="css/Author.css" />
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      html, body, #map {
+        height: 100%;
+        width: 100vw;
+      }
+    </style>
+
+    </head>
+    
+    <body>
+        <div id="map">
+          <!-- Código HTML del panel lateral / Side panel HTML code -->
+          <div id="sidePanel" class="sidepanel" aria-label="side panel" aria-hidden="false">
+            <div id="sidePanelWrapper" class="sidepanel-inner-wrapper">
+              <!-- Definición de pestañas del panel lateral / Side panel tabs definition -->
+              <nav id="sidePanelNavigator" class="sidepanel-tabs-wrapper" aria-label="sidepanel tab navigation">
+                <ul id="sidePanelTabs" class="sidepanel-tabs">
+  
+                  <li id="sidePanelTab1" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="allFilterTab" viewBox="0 0 32 32">
+                        <path fill-rule="evenodd" d="M27.49 2h-22A1.54 1.54 0 0 0 4 3.53v2a1.53 1.53 0 0 0 .31.93l7.83 10.36a4.32 4.32 0 0 1 .86 2.59v4.92a3.57 3.57 0 0 0 1.36 2.8l3.22 2.5a1.52 1.52 0 0 0 .93.32 1.44 1.44 0 0 0 .67-.16 1.5 1.5 0 0 0 .82-1.37v-9a4.32 4.32 0 0 1 .86-2.6l7.83-10.35a1.53 1.53 0 0 0 .31-.93v-2A1.52 1.52 0 0 0 27.49 2zM27 5.39l-7.73 10.22A6.37 6.37 0 0 0 18 19.43v8l-2.45-1.89a1.57 1.57 0 0 1-.55-1.21v-4.92a6.29 6.29 0 0 0-1.27-3.79L6 5.39V4h21z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab2" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="quakeFilterTab" viewBox="0 0 128 128">
+                        <path fill-rule="evenodd" d="M119.031 112.076c-5.259 0-6.671-11.333-9.124-53.186-.787-13.399-1.73-29.484-3.014-36.229-1.541 6.239-2.934 20.75-3.918 30.994-2.85 29.699-3.92 34.54-7.634 34.54-4.228 0-5.386-5.871-6.728-12.669-.545-2.761-1.417-7.184-2.331-8.631-.766 1.439-1.366 5.559-1.741 8.137-.973 6.672-1.89 12.973-6.448 12.973-4.156 0-5.378-7.343-8.41-36.279-.996-9.505-2.278-21.75-3.597-27.692-1.616 8.046-3.229 27.657-4.464 42.697-3.452 41.986-4.342 45.343-7.79 45.343-3.598 0-4.708-4.889-8.489-37.37-1.107-9.506-2.536-21.784-3.77-27.579-.449 1.884-.855 4.331-1.168 6.215-1.248 7.507-2.233 13.437-6.283 13.437-3.811 0-4.71-5.103-5.849-11.564-.457-2.599-1.462-8.297-2.623-9.857-1.733 3.929-3.102 19.829-4.121 31.662-2.409 27.961-3.478 35.056-7.686 35.056-3.628 0-5.095-2.524-9.255-52.122C3.205 43.465 1.485 22.944 0 20.476c.123.205 1.335-3.605 1.335-3.605 3.349 0 4.13 2.901 7.47 42.729 1.387 16.535 3.214 38.302 5.116 46.039 1.383-5.65 2.519-18.848 3.393-28.982 2.471-28.687 3.66-35.906 7.901-35.906 4.807 0 6.038 6.98 7.226 13.729.404 2.288 1.03 5.843 1.707 7.466.85-1.877 1.603-6.41 2.083-9.298 1.185-7.126 2.04-12.275 5.663-12.275 3.296 0 4.154 3.796 7.653 33.843 1.183 10.16 2.697 23.161 4.099 29.871 1.3-7.787 2.637-24.042 3.759-37.7 3.719-45.248 4.863-49.515 8.558-49.515 3.718 0 4.829 4.825 7.929 34.414 1.238 11.813 2.894 27.615 4.615 31.924.809-1.657 1.467-6.184 1.847-8.786.942-6.474 1.756-12.065 5.889-12.065 4.086 0 5.214 5.723 6.522 12.35.472 2.398 1.273 6.447 2.135 8.347 1.45-4.671 2.825-19.001 3.862-29.804 2.862-29.823 4.141-37.327 8.328-37.327 3.941 0 4.863 5.589 7.039 42.719 1.048 17.858 2.61 44.503 5.255 48.998 1.292-1.106 3.365-6.297 4.447-12.45l4.169.729c-2.557 14.581-7.123 16.155-8.969 16.155z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab3" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="faultFilterTab" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.089 14.206 14.651.644l.707.707L1.796 14.914z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id ="sidePanelTab4" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="populationFilterTab" viewBox="0 0 48 48">
+                        <path fill-rule="evenodd" d="M0 46h48v2H0zM40 36H28a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v24a1 1 0 0 1-1 1zm-11-2h10V12H29z"/><path class="cls-1" d="M20 48H4a1 1 0 0 1-1-1V19a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v28a1 1 0 0 1-1 1zM5 46h14V20H5z"/><path class="cls-1" d="M45 47h-2V36H28a1 1 0 0 1-1-1V2H9v17H7V1a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v33h15a1 1 0 0 1 1 1z"/><path class="cls-1" d="M23 18h2v2h-2zM23 22h2v2h-2zM23 26h2v2h-2zM23 6h2v2h-2zM23 10h2v2h-2zM19 6h2v2h-2zM15 10h6v2h-6zM19 14h6v2h-6zM15 14h2v2h-2zM11 6h6v2h-6zM11 10h2v2h-2zM11 14h2v2h-2zM15 22h2v2h-2zM15 26h2v2h-2zM15 30h2v2h-2zM11 26h2v2h-2zM7 22h6v2H7zM7 26h2v2H7zM7 30h6v2H7zM15 34h2v2h-2zM15 38h2v2h-2zM15 42h2v2h-2zM11 34h2v2h-2zM11 42h2v2h-2zM7 34h2v2H7zM7 38h6v2H7zM7 42h2v2H7zM23 30h2v2h-2zM23 34h2v2h-2zM23 38h2v2h-2zM27 38h6v2h-6zM35 38h2v2h-2zM31 30h2v2h-2zM35 30h2v2h-2zM31 26h6v2h-6zM31 22h2v2h-2zM35 22h2v2h-2zM31 18h6v2h-6zM31 14h2v2h-2zM35 14h2v2h-2zM39 38h2v2h-2zM23 42h6v2h-6zM31 42h2v2h-2zM35 42h2v2h-2zM39 42h2v2h-2zM28 10h14v2H28zM6 0h24v2H6zM2 18h18v2H2z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab5" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="spatialFilterTab" viewBox="0 0 128 128">
+                        <path fill-rule="evenodd" d="M64 128C28.7 128 0 99.3 0 64S28.7 0 64 0s64 28.7 64 64-28.7 64-64 64zM64 5.7C31.9 5.7 5.7 31.9 5.7 64s26.1 58.3 58.3 58.3 58.3-26.1 58.3-58.3S96.1 5.7 64 5.7zM64 78c7.7 0 14-6.3 14-14s-6.3-14-14-14-14 6.3-14 14 6.3 14 14 14zm0 18c-17.7 0-32-14.4-32-32 0-17.7 14.4-32 32-32s32 14.4 32 32c0 17.7-14.3 32-32 32zm0-62.1c-16.6 0-30.1 13.5-30.1 30.1S47.4 94.1 64 94.1 94.1 80.6 94.1 64 80.6 33.9 64 33.9zm0 77c-25.8 0-46.9-21-46.9-46.9s21-46.9 46.9-46.9 46.9 21 46.9 46.9-21.1 46.9-46.9 46.9zM64 19c-24.8 0-45 20.2-45 45s20.2 45 45 45 45-20.2 45-45-20.2-45-45-45z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab6" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="exportImportTab" viewBox="0 0 100 100">
+                        <path fill-rule="evenodd" d="M33.333 23.333h20v6.666h-20zM60 23.333h6.667v6.666H60zM33.333 36.666h20v6.667h-20zM60 36.666h6.667v6.667H60zM33.333 50.001h20v6.667h-20zM33.333 63.334h20v6.667h-20zM60 50.001h6.667v6.667H60z M80 76.668V13.333a3.346 3.346 0 0 0-3.333-3.334H23.333A3.346 3.346 0 0 0 20 13.333v73.335c0 1.829 1.5 3.333 3.333 3.333h43.333L80 76.668zm-20-3.334v10H26.667V16.666h46.667v53.335h-10A3.342 3.342 0 0 0 60 73.334z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab7" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-7">
+                      <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" class="optionsTab" viewBox="0 0 48 48">
+                        <path fill="transparent" stroke-width="3" stroke="currentColor" d="M44,28V20H38.44A14.89,14.89,0,0,0,37,16.61L41,12.69,35.31,7,31.39,11A14.89,14.89,0,0,0,28,9.56V4H20V9.56A14.89,14.89,0,0,0,16.61,11L12.69,7,7,12.69,11,16.61A14.89,14.89,0,0,0,9.56,20H4v8H9.56A14.89,14.89,0,0,0,11,31.39L7,35.31,12.69,41,16.61,37A14.89,14.89,0,0,0,20,38.44V44h8V38.44A14.89,14.89,0,0,0,31.39,37L35.31,41,41,35.31,37,31.39A14.89,14.89,0,0,0,38.44,28Z"/>
+                        <circle fill="transparent" cx="24" cy="24" r="10" stroke-width="3" stroke="currentColor"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab8" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-8">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="instructionsTab" viewBox="0 0 128 128">
+                        <path fill-rule="evenodd" d="M110.6 38.3H106v-3.5c0-1-.8-1.7-1.7-1.8H70.8c-2.7 0-5.2 1.2-6.8 3.3-1.6-2.1-4.1-3.3-6.8-3.3H23.7c-1 0-1.7.8-1.7 1.8v3.5h-4.6c-1 0-1.8.8-1.8 1.8v57c0 1 .8 1.7 1.8 1.8h93.1c1 0 1.7-.8 1.8-1.8V40c0-.9-.8-1.7-1.7-1.7zm-39.8-1.8h31.7v51.9H70.8c-2.9 0-4.6 1.4-5 1.6V41.6c0-.4 0-.7-.1-1.1.5-2.2 2.6-4 5.1-4zm-45.3 0h31.7c2.6 0 4.7 1.9 5 4.1 0 .4-.1.7-.1 1.1V90c-.3-.1-2.1-1.6-5-1.6H25.5V36.5zm-6.3 5.3H22v48.3c0 1 .8 1.8 1.8 1.8h33.5c2 0 3.9 1.1 4.8 3.4H19.2V41.8zm89.6 53.5H66c.8-2.2 2.8-3.4 4.8-3.4h33.5c1 0 1.8-.8 1.8-1.8V41.8h2.8l-.1 53.5z"/>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li id="sidePanelTab9" class="sidepanel-tab">
+                    <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-9">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="contactTab" viewBox="0 0 96 96">
+                        <path fill-rule="evenodd" d="M66.403 29.362C68.181 18.711 60.798 10 50 10c-10.794 0-18.177 8.711-16.403 19.362l2.686 16.133c1.068 6.393 7.24 11.621 13.718 11.621 6.481 0 12.649-5.229 13.714-11.621l2.688-16.133zM64.007 58.001c-3.76 3.535-8.736 5.781-14.007 5.781s-10.247-2.246-14.007-5.781l-19.668 6.557C12.845 65.716 10 69.668 10 73.333V90h80V73.333c0-3.665-2.845-7.617-6.325-8.775l-19.668-6.557z"/>
+                      </svg>
+                    </a>
+                  </li>
+  
+                </ul>
+              </nav>
+              <div id="sidePanelContentWrapper" class="sidepanel-content-wrapper">
+                <div id="sidePanelContent" class="sidepanel-content">
+  
+                  <div id="sidePanelTab1Content" class="sidepanel-tab-content" data-tab-content="tab-1">
+                    <h1 id="allFiltersTabTitle"></h1>
+                    <p id="allFiltersTabDescription"></p>
+                    <h2 id="quakeFiltersTitle"></h2>
+                    <p id="quakeMagnitudeFiltersDescription"></p>
+                    <p>
+                      <span id="quakeMinMagnitudeFilterText"></span>
+                      <input id="quakeMinMagnitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMaxMagnitudeFilterText"></span>
+                      <input id="quakeMaxMagnitudeFilterInput">
+                    </p>
+                    <p id="quakeIntensityFiltersDescription"></p>
+                    <p>
+                      <span id="quakeMinIntensityFilterText"></span>
+                      <select id="quakeMinIntensityFilterInput"></select>
+                    </p>
+                    <p>
+                      <span id="quakeMaxIntensityFilterText"></span>
+                      <select id="quakeMaxIntensityFilterInput"></select>
+                    </p>
+                    <p>
+                      <span id="quakeMinDepthFilterText"></span>
+                      <input id="quakeMinDepthFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMaxDepthFilterText"></span>
+                      <input id="quakeMaxDepthFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMinDateFilterText"></span>
+                      <input id="quakeMinDateFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMaxDateFilterText"></span>
+                      <input id="quakeMaxDateFilterInput">
+                    </p>
+                    <h2 id="faultFiltersTitle"></h2>
+                    <p>
+                      <span id="faultMinMagnitudeFilterText"></span>
+                      <input id="faultMinMagnitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="faultMaxMagnitudeFilterText"></span>
+                      <input id="faultMaxMagnitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="faultMinDepthFilterText"></span>
+                      <input id="faultMinDepthFilterInput">
+                    </p>
+                    <p>
+                      <span id="faultMaxDepthFilterText"></span>
+                      <input id="faultMaxDepthFilterInput">
+                    </p>
+                    <h2 id="populationFiltersTitle"></h2>
+                    <p>
+                      <span id="populationMinNumberFilterText"></span>
+                      <input id="populationMinNumberFilterInput">
+                    </p>
+                    <p>
+                      <span id="populationMaxNumberFilterText"></span>
+                      <input id="populationMaxNumberFilterInput">
+                    </p>
+                    <h2 id="spatialFiltersTitle"></h2>
+                    <p>
+                      <span id="spatialLatitudeFilterText"></span>
+                      <input id="spatialLatitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialLongitudeFilterText"></span>
+                      <input id="spatialLongitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialRadiusFilterText"></span>
+                      <input id="spatialRadiusFilterInput">
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersFixedRadiusCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersFixedRadiusText" class="biggerFont"></span>
+                    </p>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersInsideTerritorialLimitCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersInsideTerritorialLimitText" class="biggerFont"></span>
+                    </div>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="allFilterButton"></button><button class="sidePanelHalfButton" type="button" id="allDuplicateButton"></button>
+                    </p>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="allRefreshButton"></button><button class="sidePanelHalfButton" type="button" id="allUnmarkButton"></button>
+                    </p>
+                  </div>
+
+                  <div id="sidePanelTab2Content" class="sidepanel-tab-content" data-tab-content="tab-2">
+                    <h1 id="quakeFiltersTabTitle"></h1>
+                    <p id="quakeFiltersTabDescription"></p>
+                    <h2 id="quakeMagnitudeFiltersTitle"></h2>
+                    <p id="quakeMagnitudeFiltersDescription"></p>
+                    <p>
+                      <span id="quakeMinMagnitudeFilterText"></span>
+                      <input id="quakeMinMagnitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMaxMagnitudeFilterText"></span>
+                      <input id="quakeMaxMagnitudeFilterInput">
+                    </p>
+                    <h2 id="quakeIntensityFiltersTitle"></h2>
+                    <p id="quakeIntensityFiltersDescription"></p>
+                    <p>
+                      <span id="quakeMinIntensityFilterText"></span>
+                      <select id="quakeMinIntensityFilterInput"></select>
+                    </p>
+                    <p>
+                      <span id="quakeMaxIntensityFilterText"></span>
+                      <select id="quakeMaxIntensityFilterInput"></select>
+                    </p>
+                    <h2 id="quakeDepthFiltersTitle"></h2>
+                    <p>
+                      <span id="quakeMinDepthFilterText"></span>
+                      <input id="quakeMinDepthFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMaxDepthFilterText"></span>
+                      <input id="quakeMaxDepthFilterInput">
+                    </p>
+                    <h2 id="quakeDateFiltersTitle"></h2>
+                    <p>
+                      <span id="quakeMinDateFilterText"></span>
+                      <input id="quakeMinDateFilterInput">
+                    </p>
+                    <p>
+                      <span id="quakeMaxDateFilterText"></span>
+                      <input id="quakeMaxDateFilterInput">
+                    </p>
+                    <h2 id="spatialFiltersTitle"></h2>
+                    <p>
+                      <span id="spatialLatitudeFilterText"></span>
+                      <input id="spatialLatitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialLongitudeFilterText"></span>
+                      <input id="spatialLongitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialRadiusFilterText"></span>
+                      <input id="spatialRadiusFilterInput">
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersFixedRadiusCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersFixedRadiusText" class="biggerFont"></span>
+                    </p>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersInsideTerritorialLimitCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersInsideTerritorialLimitText" class="biggerFont"></span>
+                    </div>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="quakesFilterButton"></button><button class="sidePanelHalfButton" type="button" id="quakesDuplicateButton"></button>
+                    </p>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="quakesRefreshButton"></button><button class="sidePanelHalfButton" type="button" id="quakesUnmarkButton"></button>
+                    </p>
+                  </div>
+
+                  <div id="sidePanelTab3Content" class="sidepanel-tab-content" data-tab-content="tab-3">
+                    <h1 id="faultFiltersTabTitle"></h1>
+                    <p id="faultFiltersTabDescription"></p>
+                    <h2 id="faultMagnitudeFiltersTitle"></h2>
+                    <p>
+                      <span id="faultMinMagnitudeFilterText"></span>
+                      <input id="faultMinMagnitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="faultMaxMagnitudeFilterText"></span>
+                      <input id="faultMaxMagnitudeFilterInput">
+                    </p>
+                    <h2 id="faultDepthFiltersTitle"></h2>
+                    <p>
+                      <span id="faultMinDepthFilterText"></span>
+                      <input id="faultMinDepthFilterInput">
+                    </p>
+                    <p>
+                      <span id="faultMaxDepthFilterText"></span>
+                      <input id="faultMaxDepthFilterInput">
+                    </p>
+                    <h2 id="spatialFiltersTitle"></h2>
+                    <p>
+                      <span id="spatialLatitudeFilterText"></span>
+                      <input id="spatialLatitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialLongitudeFilterText"></span>
+                      <input id="spatialLongitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialRadiusFilterText"></span>
+                      <input id="spatialRadiusFilterInput">
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersFixedRadiusCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersFixedRadiusText" class="biggerFont"></span>
+                    </p>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersInsideTerritorialLimitCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersInsideTerritorialLimitText" class="biggerFont"></span>
+                    </div>
+                      <button class="sidePanelHalfButton" type="button" id="faultsFilterButton"></button><button class="sidePanelHalfButton" type="button" id="faultsDuplicateButton"></button>
+                    </p>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="faultsRefreshButton"></button><button class="sidePanelHalfButton" type="button" id="faultsUnmarkButton"></button>
+                    </p>
+                  </div>
+
+                  <div id="sidePanelTab4Content" class="sidepanel-tab-content" data-tab-content="tab-4">
+                    <h1 id="populationFiltersTabTitle"></h1>
+                    <p id="populationFiltersTabDescription"></p>
+                    <h2 id="populationFiltersNumberTitle"></h2>
+                    <p>
+                      <span id="populationMinNumberFilterText"></span>
+                      <input id="populationMinNumberFilterInput">
+                    </p>
+                    <p>
+                      <span id="populationMaxNumberFilterText"></span>
+                      <input id="populationMaxNumberFilterInput">
+                    </p>
+                    <h2 id="spatialFiltersTitle"></h2>
+                    <p>
+                      <span id="spatialLatitudeFilterText"></span>
+                      <input id="spatialLatitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialLongitudeFilterText"></span>
+                      <input id="spatialLongitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialRadiusFilterText"></span>
+                      <input id="spatialRadiusFilterInput">
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersFixedRadiusCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersFixedRadiusText" class="biggerFont"></span>
+                    </p>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersInsideTerritorialLimitCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersInsideTerritorialLimitText" class="biggerFont"></span>
+                    </div>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="populationsFilterButton"></button><button class="sidePanelHalfButton" type="button" id="populationsDuplicateButton"></button>
+                    </p>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="populationsRefreshButton"></button><button class="sidePanelHalfButton" type="button" id="populationsUnmarkButton"></button>
+                    </p>
+                  </div>
+
+                  <div id="sidePanelTab5Content" class="sidepanel-tab-content" data-tab-content="tab-5">
+                    <h1 id="spatialFiltersTabTitle"></h1>
+                    <p id="spatialFiltersTabDescription"></p>
+                    <h2 id="spatialFiltersCoordinatesTitle"></h2>
+                    <p>
+                      <span id="spatialLatitudeFilterText"></span>
+                      <input id="spatialLatitudeFilterInput">
+                    </p>
+                    <p>
+                      <span id="spatialLongitudeFilterText"></span>
+                      <input id="spatialLongitudeFilterInput">
+                    </p>
+                    <h2 id="spatialFiltersRadiusTitle"></h2>
+                    <p>
+                      <span id="spatialRadiusFilterText"></span>
+                      <input id="spatialRadiusFilterInput">
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersFixedRadiusCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersFixedRadiusText" class="biggerFont"></span>
+                    </p>
+                    <h2 id="spatialFiltersConditionTitle"></h2>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="spatialFiltersInsideTerritorialLimitCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="spatialFiltersInsideTerritorialLimitText" class="biggerFont"></span>
+                    </div>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="spatialFilterButton"></button><button class="sidePanelHalfButton" type="button" id="spatialDuplicateButton"></button>
+                    </p>
+                    <p>
+                      <button class="sidePanelHalfButton" type="button" id="spatialRefreshButton"></button><button class="sidePanelHalfButton" type="button" id="spatialUnmarkButton"></button>
+                    </p>
+                  </div>
+
+                  
+                  <div id="sidePanelTab6Content" class="sidepanel-tab-content" data-tab-content="tab-6">
+                    <h1 id="filesTabTitle"></h1>
+                    <p id="filesTabDescription"></p>
+                    <h2 id="filesTabImportTitle"></h2>
+                    <p>
+                      <span id="filesTabImportLayerName"></span>
+                      <input id="filesTabImportLayerNameInput">
+                    </p>
+                    <p>
+                      <input id="filesTabImportLayerFileInput">
+                    </p>
+                    <p>
+                      <button class="sidePanelFullButton" id="filesTabImportLayerButton" hidden="true"></button><progress id="filesTabProgressbar" value="0"></progress>
+                    </p>
+                    <h2 id="filesTabExportTitle"></h2>
+                    <p>
+                      <span id="filesTabExportNameText"></span>
+                      <input id="filesTabExportNameInput">
+                    </p>
+                    <p>
+                      <span id="filesTabExportLayerText"></span>
+                      <select id="filesTabExportLayerSelect"></select>
+                    </p>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="filesTabExportOnlyVisibleBoundsCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="filesTabExportOnlyVisibleBoundsText" class="biggerFont"></span>
+                    </div>
+                    <p>
+                      <button class="sidePanelHalfButton" id="filesTabExportCsvButton"></button>
+                      <button class="sidePanelHalfButton" id="filesTabExportGeojsonButton"></button>
+                    </p>
+                  </div>
+
+                  <div id="sidePanelTab7Content" class="sidepanel-tab-content" data-tab-content="tab-7">
+                    <h1 id="optionsTabTitle"></h1>
+                    <p id="optionsTabDescription"></p>
+                    <h2 id="optionsTabLangageTitle"></h2>
+                    <p><select id="optionsTabLangageInput"></select></p>
+                    <p id="optionsTabLangageText"></p>
+                    <h2 id="optionsTabControlsTitle"></h2>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="optionsTabLayerControlAllwaysDeployedCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="optionsTabLayerControlAllwaysDeployedText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="optionsTabScalebarControlVisibleCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="optionsTabScalebarControlVisibleText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="optionsTabCoordinateVisorControlVisibleCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="optionsTabCoordinateVisorControlVisibleText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="optionsTabFilterLegendControlVisibleCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="optionsTabFilterLegendControlVisibleText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <label class="switch">
+                        <input type="checkbox" id="optionsTabEventLegendControlVisibleCheckbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <span id="optionsTabEventLegendControlVisibleText" class="biggerFont"></span>
+                    </div>
+                    <h2 id="optionsTabStylesTitle"></h2>
+                    <h3 id="optionsTabQuakesStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabQuakesBorderColorInput">
+                      <span id="optionsTabQuakesBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <input id="optionsTabQuakesMinDepthColorInput">
+                      <span id="optionsTabQuakesMinDepthColorText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <input id="optionsTabQuakesMaxDepthColorInput">
+                      <span id="optionsTabQuakesMaxDepthColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabFaultsStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabFaultsBorderColorInput">
+                      <span id="optionsTabFaultsBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabPopulationsStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabPopulationsBorderColorInput">
+                      <span id="optionsTabPopulationsBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <input id="optionsTabPopulationsFillColorInput">
+                      <span id="optionsTabPopulationsFillColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabIntensitiesStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabIntensitiesBorderColorInput">
+                      <span id="optionsTabIntensitiesBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabRegionsStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabRegionsBorderColorInput">
+                      <span id="optionsTabRegionsBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabProvincesStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabProvincesBorderColorInput">
+                      <span id="optionsTabProvincesBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabTerritorialLimitStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabTerritorialLimitBorderColorInput">
+                      <span id="optionsTabTerritorialLimitBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabFilterCircleStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabFilterCircleBorderColorInput">
+                      <span id="optionsTabFilterCircleBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <input id="optionsTabFilterCircleFillColorInput">
+                      <span id="optionsTabFilterCircleFillColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabImportedLayerStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabImportedLayerBorderColorInput">
+                      <span id="optionsTabImportedLayerBorderColorText" class="biggerFont"></span>
+                    </div>
+                    <br>
+                    <div>
+                      <input id="optionsTabImportedLayerFillColorInput">
+                      <span id="optionsTabImportedLayerFillColorText" class="biggerFont"></span>
+                    </div>
+                    <h3 id="optionsTabSystemStylesTitle"></h3>
+                    <div>
+                      <input id="optionsTabMarkedColorInput">
+                      <span id="optionsTabMarkedBorderColorText" class="biggerFont"></span>
+                    </div>
+                  </div>
+
+                  <div id="sidePanelTab8Content" class="sidepanel-tab-content" data-tab-content="tab-8">
+                    <h1 id="instructionsTabTitle"></h1>
+                    <p id="instructionsTabDescription"></p>
+                  </div>
+
+                  <div id="sidePanelTab9Content" class="sidepanel-tab-content" data-tab-content="tab-9">
+                    <h1 id="contactTabTitle"></h1>
+                    <p id="contactTabDescription"></p>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+            <div id="sidePanelToogleContainer" class="sidepanel-toggle-container">
+              <button id="sidePanelToogleButton" class="sidepanel-toggle-button" type="button" aria-label="toggle side panel"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos crudos / Raw data -->
+        <script src="data/regionsData.js"></script>
+        <script src="data/provincesData.js"></script>
+        <script src="data/territorialLimitData.js"></script>
+        <script src="data/quakesData.js"></script>
+        <script src="data/faultsData.js"></script>
+        <script src="data/populationsData.js"></script>
+        <script src="data/intensitiesData.js"></script>
+
+        <!-- Scripts -->
+        <!-- Principal / Main -->
+        <script src= "js/leaflet.js"></script>
+
+        <!--Plugins propios / Author plugins -->
+        <!--Functions / Functions -->
+        <script src="js/author/LangageFunctions.js"></script>
+        <script src="js/author/GeneralFunctions.js"></script>
+        <script src="js/author/LayerFunctions.js"></script>
+        <script src="js/author/StyleFunctions.js"></script>
+        <script src="js/author/SidePanelFunctions.js"></script>
+        <script src="js/author/FileFunctions.js"></script>
+        <script src="js/author/PopupFunctions.js"></script>
+        <script src="js/author/WindowFunctions.js"></script>
+        <script src="js/author/QueryFunctions.js"></script>
+        <script src="js/author/GeometryFunctions.js"></script>
+        <script src="js/author/MiscFunctions.js"></script>
+        <script src= js/author/DataPreprocessFunctions.js></script>
+        <script src="js/author/PaneConfig.js"></script>
+        <script src="js/author/AttributesConfig.js"></script>
+        <script src="js/author/VisorConstants.js"></script>
+
+        <!--Controles / Controls -->
+        <script src="js/author/CoordinatesVisorControl.js"></script>
+        <script src="js/author/FilterLegendControl.js"></script>
+        <script src="js/author/EventLegendControl.js"></script>
+
+        <!-- Plugins de terceros / Third party plugins -->
+        <script src="js/plugins/leaflet-svg-shape-markers.js"></script>
+        <script src="js/plugins/leaflet.contextmenu.js"></script>
+        <script src="js/plugins/leaflet-sidepanel.js"></script>
+        <script src="js/plugins/L.Control.BetterScale.js"></script>
+        <script src="js/plugins/Leaflet.AnimatedSearchBox.js"></script>
+        <script src="js/plugins/L.Control.Window.js"></script>
+        <script src="js/plugins/leaflet-corridor.js"></script>
+        <script src="js/plugins/easy_print.js"></script>
+        <script src="js/plugins/easy-button.js"></script>
+        <script src="js/plugins/fuse.js"></script>
+
+        <!-- Código principal / Main code -->
+        <script>
+
+          // Objetos principales / Main objects
+          // Capas / Layers
+          let emptyLayer, osmLayer, regionsLayer, provincesLayer, territorialLimitLayer, quakesLayer, faultsLayer, populationsLayer, intensitiesLayer,
+          duplicatedQuakesLayer, duplicatedFaultsLayer, duplicatedPopulationsLayer, importedLayer;
+
+          // Capas de filtrado / Filter layers
+          let filterCircle, filterCircleOrigin, filterBuffer;
+
+          // Otros objetos
+          let previousCircleLat, previousCircleLng, previousCircleRadius;
+          let spatialRadiusFixed = DEAULT_RADIUS_FILTER_FIXED;
+          let insideTerritorialLimit = DEFAULT_INSIDE_TERRITORIAL_LIMIT;
+
+          // Controles / Controls
+          let zoomControl, layerControl, scalebarControl, coordinatesVisorControl, searchboxControl, 
+          printControl, printButton, sidePanelControl, filterLegendControl, eventLegendControl;
+
+          // Ventanas / Windows
+          let alertWindow, queryWindow;
+
+          // Idioma / Langage
+          let langage = 'spanish';
+
+          // Modo visor / Visor mode
+          let visorMode = VisorMode.NORMAL;
+
+          // Objeto de selección / Selection object
+          let selectedObject = null;
+
+          // Objeto FileReader
+          let fileReader = new FileReader();
+
+          // Objeto Fuse (utilizado en las opciones de autompletitud de la caja de búsqueda de poblaciones)
+          // Fuse object (used in autompletition options of the population search box)
+          let fuse = new Fuse(POPULATION_NAMES);
+
+          // Mapa (objeto principal) / Map (main object)
+          let map = L.map('map', {
+          zoomControl: false,
+          center: [INITIAL_LATITUDE, INITIAL_LONGITUDE],
+          zoom: INITIAL_ZOOM_LEVEL,
+          contextmenu: true,
+          contextmenuWidth: CONTEXT_MENU_WIDTH,
+          contextmenuItems: GeneralFunctions.getContextMenuItems()
+        });
+
+        GeneralFunctions.intialize();
+        
+        //Aplicar nuevas magnitudes
+        const updated = DataPreprocessFunctions.applyToQuakesGeoJSON(quakesData);
+   
+
+        </script>
+    </body>
+</html>

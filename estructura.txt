@@ -1,0 +1,97 @@
+Listado de rutas de carpetas para el volumen Windows
+El número de serie del volumen es 20CE-F639
+C:.
+¦   changelog-en
+¦   changelog-es
+¦   estructura
+¦   estructura.txt
+¦   index.html
+¦   LICENSE
+¦   README.md
+¦   
++---css
+¦   ¦   Author.css
+¦   ¦   CoordinatesVisor.css
+¦   ¦   easy-button.css
+¦   ¦   EventLegend.css
+¦   ¦   FilterLegend.css
+¦   ¦   L.Control.BetterScale.css
+¦   ¦   L.Control.Window.css
+¦   ¦   leaflet-sidepanel.css
+¦   ¦   Leaflet.AnimatedSearchBox.css
+¦   ¦   leaflet.contextmenu.css
+¦   ¦   leaflet.css
+¦   ¦   ToogleButton.css
+¦   ¦   
+¦   +---images
+¦           Camera.svg
+¦           cancel.png
+¦           cancel_@2X.png
+¦           check.png
+¦           check_@2X.png
+¦           focus.png
+¦           focus_@2X.png
+¦           layers-2x.png
+¦           layers.png
+¦           marker-icon-2x.png
+¦           marker-icon.png
+¦           marker-shadow.png
+¦           measure-control.png
+¦           rulers.png
+¦           rulers_@2X.png
+¦           search_icon.png
+¦           start.png
+¦           start_@2X.png
+¦           throbber.gif
+¦           trash.png
+¦           trash_@2X.png
+¦           
++---data
+¦       faultsData.js
+¦       intensitiesData.js
+¦       populationsData.js
+¦       provincesData.js
+¦       quakesData.js
+¦       regionsData.js
+¦       territorialLimitData.js
+¦       
++---images
+¦       favicon.png
+¦       User_Manual_1.png
+¦       User_Manual_2.png
+¦       
++---js
+    ¦   leaflet.js
+    ¦   leaflet.js.map
+    ¦   
+    +---author
+    ¦       AttributesConfig.js
+    ¦       CoordinatesVisorControl.js
+    ¦       EventLegendControl.js
+    ¦       FileFunctions.js
+    ¦       FilterLegendControl.js
+    ¦       GeneralFunctions.js
+    ¦       GeometryFunctions.js
+    ¦       LangageFunctions.js
+    ¦       LayerFunctions.js
+    ¦       MiscFunctions.js
+    ¦       PaneConfig.js
+    ¦       PopupFunctions.js
+    ¦       QueryFunctions.js
+    ¦       SidePanelFunctions.js
+    ¦       StyleFunctions.js
+    ¦       VisorConstants.js
+    ¦       WindowFunctions.js
+    ¦       
+    +---plugins
+            easy-button.js
+            easy_print.js
+            fuse.js
+            L.Control.BetterScale.js
+            L.Control.Window.js
+            leaflet-corridor.js
+            leaflet-sidepanel.js
+            leaflet-svg-shape-markers.js
+            Leaflet.AnimatedSearchBox.js
+            leaflet.contextmenu.js
+            
