@@ -18,3 +18,11 @@ Versión 1.2:
  - Añadida la opción de mostrar el control de capas siempre desplegado o contraído cuando no está activo.
  - Actualizado el catálogo sísmico al 18/02/2024.
  - Cambios menores.
+
+Versión 1.3:
+ - Actualizado el catálogo sísmico a 15/04/2026.
+ - Asignación de magnitud a terremotos que solo tenían intensidad.
+ - Arreglo del botón descarmar.
+ - Eliminada la desaparición de la capa de intensidades al filtrar.
+ - Mejora visual de la leyenda de filtros.
+ - Nuevo orden lógico de capas.
