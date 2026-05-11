@@ -326,7 +326,7 @@ class LangageFunctions {
     + "<h3>Sismos</h3><b>Fuente:</b> Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
     + "<h3>Fallas</h3><b>Fuente:</b> QAFI (Quaternary Active Faults database of Iberia), Instituto Geológico y Minero de España (IGME).<br><b>URL:</b> <a href='http://info.igme.es/qafi/' target='_blank'>http://info.igme.es/qafi/</a>"
     + "<h3>Poblaciones</h3><b>Fuente:</b> Centroides generados con QGIS (<a href='https://www.qgis.org/es/site/' target='_blank'>https://www.qgis.org/es/site/</a>) a partir de datos de población del Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Intensidades</h3><b>Fuente:</b> Generado a partir de la publicación \"Mapa de Intensidad Máxima (MIM) de España (Península Ibérica y Baleares). M. José García y Luis Cabañas. 10ª Asamblea Hispano Portuguesa de Geodesia y Geofísica-Artículos-2023. Toledo 28 nov-1 dic 2022. Pags. 500-507.\" y de la publicación \"Revisión del Catálogo Sísmico de la Islas Canarias\" del Instituto Geográfico Nacional (IGN)."
+    + "<h3>Intensidades</h3><b>Fuente:</b> García y Cabañas (2022) 'Mapa de Intensidad Máxima (MIM) de España (Península Ibérica y Baleares)'<br><b>URL</b> <a href='https://www.researchgate.net/publication/403874338_Mapa_de_Intensidad_Maxima_MIM_de_Espana_Peninsula_Iberica_y_Baleares' target='_blank'>https://www.ign.es/web/resources/acercaDe/libDigPub/X-AHPGG-articulos.pdf#page=520' target='_blank'>https://www.ign.es/web/resources/acercaDe/libDigPub/X-AHPGG-articulos.pdf#page=520</a>"
     + "<h3>Iconos del panel lateral</h3><b>URL:</b> <a href='https://www.reshot.com/free-svg-icons' target='_blank'>https://www.reshot.com/free-svg-icons</a>",
 
     // Ventana de alerta
@@ -437,20 +437,20 @@ class LangageFunctions {
     TERRITORIAL_LIMIT: "Territorial limit",
     QUAKES_LAYER: "Quakes",
     FAULTS_LAYER: "Faults",
-    POPULATIONS_LAYER: "Populations",
+    POPULATIONS_LAYER: "Locations",
     INTENSITIES_LAYER: "Intensities",
     DUPLICATED_QUAKES_LAYER: "Quakes (copy)",
     DUPLICATED_FAULTS_LAYER: "Faults (copy)",
-    DUPLICATED_POPULATIONS_LAYER: "Populations (copy)",
+    DUPLICATED_POPULATIONS_LAYER: "Locations (copy)",
 
     // Side panel texts
 
     // All filters
     SIDE_PANEL_ALL_FILTERS_TAB_TITLE: "Filter all layers",
-    SIDE_PANEL_ALL_FILTERS_TAB_DESCRIPTION: "Filter quakes, faults and populations layers by the specified parameters",
+    SIDE_PANEL_ALL_FILTERS_TAB_DESCRIPTION: "Filter quakes, faults and locations layers by the specified parameters",
     SIDE_PANEL_QUAKE_FILTERS_TITLE: "Quakes filters",
     SIDE_PANEL_FAULT_FILTERS_TITLE: "Faults filters",
-    SIDE_PANEL_POPULATION_FILTERS_TITLE: "Populations filters",
+    SIDE_PANEL_POPULATION_FILTERS_TITLE: "Locations filters",
 
     // Quakes filters
     SIDE_PANEL_QUAKE_FILTERS_TAB_TITLE: "Filter quakes layer",
@@ -473,7 +473,7 @@ class LangageFunctions {
 
     // Faults filters
     SIDE_PANEL_FAULT_FILTERS_TAB_TITLE: "Filter faults layers",
-    SIDE_PANEL_FAULT_FILTERS_TAB_DESCRIPTION: "Filters only populations layer by the specified parameters.<br><br>Faults that partially cross the filter radius are considered as inside.",
+    SIDE_PANEL_FAULT_FILTERS_TAB_DESCRIPTION: "Filters only locations layer by the specified parameters.<br><br>Faults that partially cross the filter radius are considered as inside.",
     SIDE_PANEL_FAULT_MAGNITUDE_FILTERS_TITLE: "Magnitude filters",
     SIDE_PANEL_FAULT_MIN_MAGNITUDE_FILTER_TEXT: "Minimum expected magnitude:  ",
     SIDE_PANEL_FAULT_MAX_MAGNITUDE_FILTER_TEXT: "Maximum expceted magnitude:  ",
@@ -482,8 +482,8 @@ class LangageFunctions {
     SIDE_PANEL_FAULT_MAX_DEPTH_FILTER_TEXT: "Maximum depth [km]:  ",
 
     // Populations filters
-    SIDE_PANEL_POPULATION_FILTERS_TAB_TITLE: "Filter populations layers",
-    SIDE_PANEL_POPULATION_FILTERS_TAB_DESCRIPTION: "Filters only populations layer by the specified parameters.",
+    SIDE_PANEL_POPULATION_FILTERS_TAB_TITLE: "Filter locations layers",
+    SIDE_PANEL_POPULATION_FILTERS_TAB_DESCRIPTION: "Filters only locations layer by the specified parameters.",
     SIDE_PANEL_POPULATION_NUMBER_FILTERS_TITLE: "Inhabitants number filters",
     SIDE_PANEL_POPULATION_MIN_NUMBER_FILTER_TEXT: "Minimum inhabitants:  ",
     SIDE_PANEL_POPULATION_MAX_NUMBER_FILTER_TEXT: "Maximum inhabitants:  ",
@@ -491,7 +491,7 @@ class LangageFunctions {
     // Spatial filters
     SIDE_PANEL_SPATIAL_FILTERS_TAB_TITLE: "Spatial filters",
     SIDE_PANEL_SPATIAL_FILTERS_TAB_DESCRIPTION: "Filtra los elementos de las capas cuyos centros (sismos y poblaciones) estén dentro del radio de búsqueda especificados o lo crucen (fallas).<br><br>Esta opción no filtra por ningún otro tipo de parámetro.",
-    SIDE_PANEL_SPATIAL_FILTERS_TAB_DESCRIPTION: "Filters only elements from layers whose centers (quakes and populations) are inside the filter radius or that cross it (faults).<br><br>This option does not filter by any other type of parameter.",
+    SIDE_PANEL_SPATIAL_FILTERS_TAB_DESCRIPTION: "Filters only elements from layers whose centers (quakes and locations) are inside the filter radius or that cross it (faults).<br><br>This option does not filter by any other type of parameter.",
     SIDE_PANEL_SPATIAL_FILTERS_TITLE: "Spatial filters",
     SIDE_PANEL_SPATIAL_FILTERS_COORDINATES_TITLE: "Filter center coordinates",
     SIDE_PANEL_SPATIAL_FILTERS_RADIUS_TITLE: "Filter radius",
@@ -544,7 +544,7 @@ class LangageFunctions {
     SIDE_PANEL_OPTIONS_QUAKES_MAX_DEPTH_COLOR_TEXT: "Maximum depth fill color",
     SIDE_PANEL_OPTIONS_FAULTS_STYLES_TITLE: "Faults styles",
     SIDE_PANEL_OPTIONS_FAULTS_BORDER_COLOR_TEXT: "Fault border color",
-    SIDE_PANEL_OPTIONS_POPULATIONS_STYLES_TITLE: "Populations styles",
+    SIDE_PANEL_OPTIONS_POPULATIONS_STYLES_TITLE: "Locations styles",
     SIDE_PANEL_OPTIONS_POPULATIONS_BORDER_COLOR_TEXT: "Population border color",
     SIDE_PANEL_OPTIONS_POPULATIONS_FILL_COLOR_TEXT: "Population fill color",
     SIDE_PANEL_OPTIONS_POPULATIONS_MIN_NUMBER_COLOR_TEXT: 'Min population number color',
@@ -602,15 +602,15 @@ class LangageFunctions {
     + "<li><b>Duplicate and filter:</b> creates a copy of the \"Faults\" layer with the events filtered by the established parameters.</li>"
     + "<li><b>Refresh:</b> restores faults initial filters, erases the \"Faults\" layer and shows the regular \"Faults\" layer.</li>"
     + "<li><b>Unmark:</b> unmarks the \"Faults\" layer and/or its copy.</ul></li>"
-    + "<li><b>Population filters:</b> filters only the \"Populations\" layer."
-    + "<ul><li><b>Filter:</b> filters the \"Populations\" layer (and shows it if hidden) by the established parameters.</li>"
-    + "<li><b>Duplicate and filter:</b> creates a copy of the \"Populations\" layer with the events filtered by the established parameters.</li>"
-    + "<li><b>Refresh:</b> restores populations initial filters, erases the \"Populations\" layer and shows the regular \"Populations\" layer.</li>"
-    + "<li><b>Unmark:</b> unmarks the \"Populations\" layer and/or its copy.</ul></li>"
+    + "<li><b>Population filters:</b> filters only the \"Locations\" layer."
+    + "<ul><li><b>Filter:</b> filters the \"Locations\" layer (and shows it if hidden) by the established parameters.</li>"
+    + "<li><b>Duplicate and filter:</b> creates a copy of the \"Locations\" layer with the events filtered by the established parameters.</li>"
+    + "<li><b>Refresh:</b> restores locations initial filters, erases the \"Locations\" layer and shows the regular \"Locations\" layer.</li>"
+    + "<li><b>Unmark:</b> unmarks the \"Locations\" layer and/or its copy.</ul></li>"
     + "<li><b>Spatial filters:</b> filters all layers only by the spatial established parameters. This parameters are allowed in the rest of filters. Changing the latitude, longitude and radius values will update the filter circle."
     + "The filter circle is only shown if the radius is higher than zero. A radius equal to zero is considered as <b>infinite</b> and thus, all events are considered \"inside\" the filter circle."
     + "<ul><li>The \"Lock\" radius filter prevents the radius to be modified, thus, when selecting a process that requires to draw a search radius, this step will be omited.</li>"
-    + "<li>The \"Inside territorial limit\" filters only events inside (quakes and populations) or partially inside (faults) the national territorial limits.<em>Warning: this option increases processing time.</em></li>"
+    + "<li>The \"Inside territorial limit\" filters only events inside (quakes and Locations) or partially inside (faults) the national territorial limits.<em>Warning: this option increases processing time.</em></li>"
     + "<li><b>Filter:</b> filters all layers (and shows them if hidden) by the established parameters.</li>"
     + "<li><b>Duplicate and filter:</b> creates a copy of all layers with the events filtered by the established parameters.</li>"
     + "<li><b>Refresh:</b> restores spatial filters initial values, erases duplicated layers and show all regular layers.</li>"
@@ -635,14 +635,14 @@ class LangageFunctions {
     + "<li><b>Pan to biggest intensity in radius:</b> pans to the  maximum intensity polygon of highest value found within the drawn circle, if any is found.</li>"
     + "<li><b>Get quakes number in radius:</b> marks all quakes found within the search circle and shows a window with information about them.</li>"
     + "<li><b>Get faults number in radius:</b> marks all faults found within the search circle and shows a window with information about them.</li>"
-    + "<li><b>Get inhabitants number in radius:</b> marks all populations found within the search circle and shows a window with information about them.</li>"
+    + "<li><b>Get inhabitants number in radius:</b> marks all locations found within the search circle and shows a window with information about them.</li>"
     + "<li><b>Get last quake bigger than a magnitude in radius:</b> marks the most recent quake within the search radius and higher or equal to the inputed magnitude, if any is found, and shows information about it.</li>"
     + "<li><b>Get last quake bigger than an intensity in radius:</b> marks the most recent quake within the search radius and higher or equal to the inputed intensity, if any is found, and shows information about it.</li></ul>"
     + "<h3>Fault queries</h3>"
     + "Allows to do fault specific queries when right clicking on a fault event."
-    + "<ul><li><b>Get populations from a distance to a fault:</b> marks populations a distance to the fault lower or equal to the inputed, if any found, and shows information about them.</li>"
+    + "<ul><li><b>Get locations from a distance to a fault:</b> marks locations a distance to the fault lower or equal to the inputed, if any found, and shows information about them.</li>"
     + "<li><b>Get biggest magnitude quake from a distance to a fault:</b> marks the bigghest magnitude quake a distance to the fault lower or equal to the inputed, if any found.</li>"
-    + "<li><b>Get highest inhabitants number populations from a distance to a fault:</b> marks populations with a number of inhabitants higher or equal than the inputed value, a distance to the fault lower or equal than the inputed, if any is found, and shows information about them.</li></ul>"
+    + "<li><b>Get highest inhabitants number locations from a distance to a fault:</b> marks locations with a number of inhabitants higher or equal than the inputed value, a distance to the fault lower or equal than the inputed, if any is found, and shows information about them.</li></ul>"
     + "<h3>Population queries</h3>"
     + "Allows to do population specific queries when right clicking on a population event."
     + "<ul><li><b>Get highest intensity felt in the population:</b> shows maximum intensity refered to the maximum intensities polygon the population is inside.</li></ul>",
@@ -686,8 +686,8 @@ class LangageFunctions {
     + "<h3>Territorial limit</h3><b>Source:</b> Generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from region data from Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
     + "<h3>Quakes</h3><b>Source:</b> Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
     + "<h3>Faults</h3><b>Source:</b> QAFI (Quaternary Active Faults database of Iberia), Instituto Geológico y Minero de España (IGME).<br><b>URL:</b> <a href='http://info.igme.es/qafi/' target='_blank'>http://info.igme.es/qafi/</a>"
-    + "<h3>Poblaciones</h3><b>Source:</b> Centroids generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from poblational data from Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Intensidades</h3><b>SIDE_PANEL_OPTIONS_QUAKES_FILL_COLOR_TEXT:</b> Generated from the publication \"Mapa de Intensidad Máxima (MIM) de España (Península Ibérica y Baleares). M. José García y Luis Cabañas. 10ª Asamblea Hispano Portuguesa de Geodesia y Geofísica-Artículos-2023. Toledo 28 nov-1 dic 2022. Pags. 500-507.\" y and the publication \"Revisión del Catálogo Sísmico de la Islas Canarias\" del Instituto Geográfico Nacional (IGN)."
+    + "<h3>Locations</h3><b>Source:</b> Centroids generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from poblational data from Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
+    + "<h3>Intensities</h3><b>Fuente:</b> García y Cabañas (2022) 'Mapa de Intensidad Máxima (MIM) de España (Península Ibérica y Baleares)'<br><b>URL</b> <a href='https://www.researchgate.net/publication/403874338_Mapa_de_Intensidad_Maxima_MIM_de_Espana_Peninsula_Iberica_y_Baleares' target='_blank'>https://www.ign.es/web/resources/acercaDe/libDigPub/X-AHPGG-articulos.pdf#page=520' target='_blank'>https://www.ign.es/web/resources/acercaDe/libDigPub/X-AHPGG-articulos.pdf#page=520</a>"
     + "<h3>Side panel icons</h3><b>URL:</b> <a href='https://www.reshot.com/free-svg-icons' target='_blank'>https://www.reshot.com/free-svg-icons</a>",
 
     // Alert window
@@ -721,9 +721,9 @@ class LangageFunctions {
     CONTEXT_MENU_LAST_QUAKE_BY_INTENSITY_IN_RADIUS_TEXT: "Get last quake bigger than an intensity in radius",
 
     // Faults
-    CONTEXT_MENU_POPULATIONS_DISTANCE_TO_FAULT: "Get populations from a distance to a fault",
+    CONTEXT_MENU_POPULATIONS_DISTANCE_TO_FAULT: "Get locations from a distance to a fault",
     CONTEXT_MENU_BIGGEST_QUAKE_DISTANCE_TO_FAULT: "Get biggest magnitude quake from a distance to a fault",
-    CONTEXT_MENU_POPULATION_NUMBER_DISTANCE_TO_FAULT: "Get highest inhabitants number populations from a distance to a fault",
+    CONTEXT_MENU_POPULATION_NUMBER_DISTANCE_TO_FAULT: "Get highest inhabitants number locations from a distance to a fault",
 
     // Populations
     CONTEXT_MENU_POPULATION_MAX_INTENSITY_TEXT: "Get highest intensity felt in the population",
@@ -740,10 +740,10 @@ class LangageFunctions {
     QUERY_LAST_QUAKE_BY_INTENSITY_TITLE: "Last quake of intensity >= %1",
     QUERY_LAST_QUAKE_BY_INTENSITY_FORMAT: "<b>Location: </b>%1.<br><b>Intensity: </b>%2.<br><b>Date: </b>%3.<br><b>Latitude: </b>%4º.<br><b>Longitude: </b>%5º.<br><b>Radius: </b>%6km.",
     QUERY_POPULATIONS_NUMBER_TO_FAULT_TITLE: "Number of inhabitants at %1km from the selected fault",
-    QUERY_POPULATIONS_NUMBER_TO_FAULT_FORMAT: "<b>Total number of inhabitants: </b>%1.<br><b>Number of populations:</b> %2.",
+    QUERY_POPULATIONS_NUMBER_TO_FAULT_FORMAT: "<b>Total number of inhabitants: </b>%1.<br><b>Number of populatlocationsions:</b> %2.",
     QUERY_POPULATIONS_BY_NUMBER_TO_FAULT_TITLE: "Poblaciones de más de %1 habitantes a %2km de la falla seleccionada",
-    QUERY_POPULATIONS_BY_NUMBER_TO_FAULT_TITLE: "Populations with higher than %1 inhabitants at %2km from the selected fault",
-    QUERY_POPULATIONS_BY_NUMBER_TO_FAULT_FORMAT: "<b>Total number of inhabitants: </b>%1.<br><b>Number of populations:</b> %2.",
+    QUERY_POPULATIONS_BY_NUMBER_TO_FAULT_TITLE: "Locations with higher than %1 inhabitants at %2km from the selected fault",
+    QUERY_POPULATIONS_BY_NUMBER_TO_FAULT_FORMAT: "<b>Total number of inhabitants: </b>%1.<br><b>Number of locations:</b> %2.",
     QUERY_NO_OBJECT_FOUND_TEXT: "No object has been found.",
     QUERY_NAME_TEXT: "Name",
     QUERY_QUAKE_MAGNITUDE_TEXT: "Magnitude",
