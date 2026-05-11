@@ -27,3 +27,4 @@ Version 1.3:
  - Removed the issue where the intensity layer disappeared when filtering.
  - Improved the visual design of the filter legend.
  - New logical layer ordering.
+ - Minor changes on credits tab.

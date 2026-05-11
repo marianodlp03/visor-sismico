@@ -287,7 +287,7 @@ class LangageFunctions {
 
     // Contacto
     SIDE_PANEL_CONTACT_TITLE: "Información",
-    SIDE_PANEL_CONTACT_DESCRIPTION: "<h2>Título</h2><b>Visor de eventos sísmicos</b><br>"
+    SIDE_PANEL_CONTACT_DESCRIPTION: "<h2>Título</h2><b>Visor de eventos sísmicos de España</b><br>"
     + "<h3>Autor inicial</h3>"
     + "<b>Nombre: </b>Francisco Manuel Anta Sánchez<br>"
     + "<b>Correo electrónico: </b><a href='mailto:francisco.anta.sanchez@gmail.com'>francisco.anta.sanchez@gmail.com</a><br>"
@@ -649,34 +649,46 @@ class LangageFunctions {
 
     // Contact
     SIDE_PANEL_CONTACT_TITLE: "Information",
-    SIDE_PANEL_CONTACT_DESCRIPTION: "<h2>Project name</h2>\"Visor de eventos sísmicos de España\" (Seismic events visor of Spain)."
-    + "<h2>Subject</h2>Master in \"Ingeniería Geodésica y Cartografía\" final project."
-    + "<h2>School</h2>\"Escuela Superior de Ingenieros en Topografía, Geodesia y Cartografía\". \"Universidad Politécnica de Madrid\"."
-    + "<h2>Conctact information</h2><h3>Author</h3><b>Name:</b> Francisco Manuel Anta Sánchez.<br>"
-    + "<b>E-mail:</b> <a href='mailto:francisco.anta.sanchez@gmail.com'>francisco.anta.sanchez@gmail.com</a><br>"
-    + "<h3>Tutor</h3><b>Name:</b> Jorge M. Gaspar Escribano."
-    + "<b>E-mail:</b> <a href='mailto:jorge.gaspar@upm.es'>jorge.gaspar@upm.es</a>"
+    SIDE_PANEL_CONTACT_DESCRIPTION: "<h2>Title</h2><b>Spanish sismic events visor</b><br>"
+    + "<h3>Initial author</h3>"
+    + "<b>Name: </b>Francisco Manuel Anta Sánchez<br>"
+    + "<b>e-mail: </b><a href='mailto:francisco.anta.sanchez@gmail.com'>francisco.anta.sanchez@gmail.com</a><br>"
+    + "<b>GitHub link: </b><a href='https://github.com/franciscoanta'>https://github.com/franciscoanta</a><br>"
+    + "<b>TFG link: </b><a href='https://oa.upm.es/85085/'>https://oa.upm.es/85085/</a><br>"
+
+    + "<h3>1.3 version author</h3>"
+    + "<b>Name: </b>Mariano de la Parte Juan<br>"
+    + "<b>e-mail: </b><a href='mailto:marianodlp03@gmail.com'>marianodlp03@gmail.com</a><br>"
+    + "<b>GitHub link: </b><a href='https://github.com/marianodlp03'>https://github.com/marianodlp03</a><br>"
+
+    + "<h3>Supervisor</h3>"
+    + "<b>Name: </b>Jorge Miguel Gaspar Escribano<br>"
+    + "<b>e-mail: </b><a href='mailto:jorge.gaspar@upm.es'>jorge.gaspar@upm.es</a><br>"
+
+    + "<h3>Developed in:</h3>"
+    + "Escuela Superior de Ingenieros en Topografía, Geodesia y Cartografía. Universidad Politécnica de Madrid."
+  
     + "<h2>Third party plugin credits:</h2>"
-    + "<h3>Leaflet</h3><b>Author:</b> Volodymyr Agafonkin.<br><b>Address:</b> <a href='https://leafletjs.com/' target='_blank'>https://leafletjs.com/</a>"
-    + "<h3>Leaflet.SidePanel</h3><b>Author:</b> Maxwell Ilai.<br><b>Address</b> <a href='https://github.com/maxwell-ilai/Leaflet.SidePanel' target='_blank'>https://github.com/maxwell-ilai/Leaflet.SidePanel</a>"
-    + "<h3>Leaflet.SvgShapeMarkers</h3><b>Author:</b> Rowan Winsemius.<br><b>Address</b> <a href='https://github.com/rowanwins/Leaflet.SvgShapeMarkers' target='_blank'>https://github.com/rowanwins/Leaflet.SvgShapeMarkers</a>"
-    + "<h3>Leaflet.Control.Window</h3><b>Author:</b> mapshakers.<br><b>Address</b> <a href='https://github.com/mapshakers/leaflet-control-window' target='_blank'>https://github.com/mapshakers/leaflet-control-window</a>"
-    + "<h3>Leaflet.Corridor</h3><b>Author:</b> Mikhail Shilkov.<br><b>Address</b> <a href='https://github.com/mikhailshilkov/leaflet-corridor' target='_blank'>https://github.com/mikhailshilkov/leaflet-corridor</a>"
-    + "<h3>Leaflet.EasyPrint</h3><b>Author:</b> Rowan Winsemius.<br><b>Address</b> <a href='https://github.com/rowanwins/leaflet-easyPrint' target='_blank'>https://github.com/rowanwins/leaflet-easyPrint</a>"
-    + "<h3>Leaflet.contextmenu</h3><b>Author:</b> Adam Ratcliffe.<br><b>Address</b> <a href='https://github.com/aratcliffe/Leaflet.contextmenu' target='_blank'>https://github.com/aratcliffe/Leaflet.contextmenu</a>"
-    + "<h3>Leaflet.EasyButton</h3><b>Author:</b> atstp.<br><b>Address</b> <a href='https://github.com/CliffCloud/Leaflet.EasyButton' target='_blank'>https://github.com/CliffCloud/Leaflet.EasyButton</a>"
-    + "<h3>Leaflet.BetterScale</h3><b>Author:</b> Dan Brown<br><b>Address</b> <a href='https://github.com/daniellsu/leaflet-betterscale' target='_blank'>https://github.com/daniellsu/leaflet-betterscale</a>"
-    + "<h3>Leaflet.AnimatedSearchBox</h3><b>Author:</b> Luka Steinbach.<br><b>Address</b> <a href='https://github.com/luka1199/Leaflet.AnimatedSearchBox' target='_blank'>https://github.com/luka1199/Leaflet.AnimatedSearchBox</a>"
-    + "<h3>Fuse</h3><b>Author:</b> Kiro Risk.<br><b>Address</b> <a href='https://www.fusejs.io/' target='_blank'>https://www.fusejs.io/</a>"
+    + "<h3>Leaflet</h3><b>Author:</b> Volodymyr Agafonkin.<br><b>URL:</b> <a href='https://leafletjs.com/' target='_blank'>https://leafletjs.com/</a>"
+    + "<h3>Leaflet.SidePanel</h3><b>Author:</b> Maxwell Ilai.<br><b>URL</b> <a href='https://github.com/maxwell-ilai/Leaflet.SidePanel' target='_blank'>https://github.com/maxwell-ilai/Leaflet.SidePanel</a>"
+    + "<h3>Leaflet.SvgShapeMarkers</h3><b>Author:</b> Rowan Winsemius.<br><b>URL</b> <a href='https://github.com/rowanwins/Leaflet.SvgShapeMarkers' target='_blank'>https://github.com/rowanwins/Leaflet.SvgShapeMarkers</a>"
+    + "<h3>Leaflet.Control.Window</h3><b>Author:</b> mapshakers.<br><b>URL</b> <a href='https://github.com/mapshakers/leaflet-control-window' target='_blank'>https://github.com/mapshakers/leaflet-control-window</a>"
+    + "<h3>Leaflet.Corridor</h3><b>Author:</b> Mikhail Shilkov.<br><b>URL</b> <a href='https://github.com/mikhailshilkov/leaflet-corridor' target='_blank'>https://github.com/mikhailshilkov/leaflet-corridor</a>"
+    + "<h3>Leaflet.EasyPrint</h3><b>Author:</b> Rowan Winsemius.<br><b>URL</b> <a href='https://github.com/rowanwins/leaflet-easyPrint' target='_blank'>https://github.com/rowanwins/leaflet-easyPrint</a>"
+    + "<h3>Leaflet.contextmenu</h3><b>Author:</b> Adam Ratcliffe.<br><b>URL</b> <a href='https://github.com/aratcliffe/Leaflet.contextmenu' target='_blank'>https://github.com/aratcliffe/Leaflet.contextmenu</a>"
+    + "<h3>Leaflet.EasyButton</h3><b>Author:</b> atstp.<br><b>URL</b> <a href='https://github.com/CliffCloud/Leaflet.EasyButton' target='_blank'>https://github.com/CliffCloud/Leaflet.EasyButton</a>"
+    + "<h3>Leaflet.BetterScale</h3><b>Author:</b> Dan Brown<br><b>URL</b> <a href='https://github.com/daniellsu/leaflet-betterscale' target='_blank'>https://github.com/daniellsu/leaflet-betterscale</a>"
+    + "<h3>Leaflet.AnimatedSearchBox</h3><b>Author:</b> Luka Steinbach.<br><b>URL</b> <a href='https://github.com/luka1199/Leaflet.AnimatedSearchBox' target='_blank'>https://github.com/luka1199/Leaflet.AnimatedSearchBox</a>"
+    + "<h3>Fuse</h3><b>Author:</b> Kiro Risk.<br><b>URL</b> <a href='https://www.fusejs.io/' target='_blank'>https://www.fusejs.io/</a>"
     + "<h2>Data origin</h2>"
-    + "<h3>Region (Comunidades Autónomas) limits</h3><b>Author:</b> Instituto Geográfico Nacional (IGN).<br><b>Address:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Province limits</h3><b>Author:</b> Instituto Geográfico Nacional (IGN).<br><b>Address:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Territorial limit</h3><b>Author:</b> Generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from region data from Instituto Geográfico Nacional (IGN).<br><b>Address:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Quakes</h3><b>Author:</b> Instituto Geográfico Nacional (IGN).<br><b>Address:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Faults</h3><b>Author:</b> QAFI (Quaternary Active Faults database of Iberia), Instituto Geológico y Minero de España (IGME).<br><b>Address:</b> <a href='http://info.igme.es/qafi/' target='_blank'>http://info.igme.es/qafi/</a>"
-    + "<h3>Poblaciones</h3><b>Author:</b> Centroids generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from poblational data from Instituto Geográfico Nacional (IGN).<br><b>Address:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
-    + "<h3>Intensidades</h3><b>Author:</b> Generated from the publication \"Mapa de Intensidad Máxima (MIM) de España (Península Ibérica y Baleares). M. José García y Luis Cabañas. 10ª Asamblea Hispano Portuguesa de Geodesia y Geofísica-Artículos-2023. Toledo 28 nov-1 dic 2022. Pags. 500-507.\" y and the publication \"Revisión del Catálogo Sísmico de la Islas Canarias\" del Instituto Geográfico Nacional (IGN)."
-    + "<h3>Side panel icons</h3><b>Address:</b> <a href='https://www.reshot.com/free-svg-icons' target='_blank'>https://www.reshot.com/free-svg-icons</a>",
+    + "<h3>Region (Comunidades Autónomas) limits</h3><b>Source:</b> Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
+    + "<h3>Province limits</h3><b>Source:</b> Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
+    + "<h3>Territorial limit</h3><b>Source:</b> Generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from region data from Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
+    + "<h3>Quakes</h3><b>Source:</b> Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
+    + "<h3>Faults</h3><b>Source:</b> QAFI (Quaternary Active Faults database of Iberia), Instituto Geológico y Minero de España (IGME).<br><b>URL:</b> <a href='http://info.igme.es/qafi/' target='_blank'>http://info.igme.es/qafi/</a>"
+    + "<h3>Poblaciones</h3><b>Source:</b> Centroids generated with QGIS (<a href='https://qgis.org/en/site/' target='_blank'>https://qgis.org/en/site/</a>) from poblational data from Instituto Geográfico Nacional (IGN).<br><b>URL:</b> <a href='https://www.ign.es/' target='_blank'>https://www.ign.es/</a>"
+    + "<h3>Intensidades</h3><b>SIDE_PANEL_OPTIONS_QUAKES_FILL_COLOR_TEXT:</b> Generated from the publication \"Mapa de Intensidad Máxima (MIM) de España (Península Ibérica y Baleares). M. José García y Luis Cabañas. 10ª Asamblea Hispano Portuguesa de Geodesia y Geofísica-Artículos-2023. Toledo 28 nov-1 dic 2022. Pags. 500-507.\" y and the publication \"Revisión del Catálogo Sísmico de la Islas Canarias\" del Instituto Geográfico Nacional (IGN)."
+    + "<h3>Side panel icons</h3><b>URL:</b> <a href='https://www.reshot.com/free-svg-icons' target='_blank'>https://www.reshot.com/free-svg-icons</a>",
 
     // Alert window
     ALERT_WINDOW_FILTER_ALL_LAYERS_TEXT: "Filtered all layers.",
